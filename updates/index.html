@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashySurf Updates | What's New</title>
+    <meta name="description" content="See the latest features, improvements, and bug fixes for the FlashySurf SAT prep browser extension.">
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Custom styles for the updates page, built on your site's design system */
+        .updates-header {
+            padding-top: 10rem;
+            padding-bottom: 3rem;
+            text-align: center;
+        }
+        .updates-header p {
+            margin: 1rem auto 0;
+            color: var(--color-text-light);
+            font-size: 1.25rem;
+        }
+        .updates-container {
+            padding-bottom: 5rem;
+        }
+        .update-entry {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 0.75rem;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .update-entry:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        .update-entry h2 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .update-entry h2 .date {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            white-space: nowrap;
+        }
+        .update-entry .summary {
+            font-style: italic;
+            color: var(--color-text-dark);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            max-width: none;
+        }
+        .update-entry h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .update-entry ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .update-entry li {
+            margin-bottom: 1.25rem;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        .update-entry li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #10b981; /* A nice, friendly green */
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .update-entry li strong {
+            display: block;
+            color: var(--color-text-dark);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="header-logo"><img src="images/Logo.png" alt="FlashySurf Logo"><span>FlashySurf</span></a>
+                <nav class="main-nav">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#gallery">Gallery</a>
+                    <a href="index.html#testimonials">Testimonials</a>
+                    <a href="/updates">Updates & Changes</a>
+                </nav>
+                <div class="header-cta">
+                    <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-website" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Add to Chrome</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="updates-header">
+            <div class="container">
+                <div class="mx-auto" style="max-width: 48rem;">
+                    <h1>What's New in FlashySurf</h1>
+                    <p>We're always working to make your passive learning experience better. Here’s a log of our recent updates!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="updates-container">
+            <div class="container">
+                <div class="update-entry">
+                    <h2>Version 1.7.0 - Smarter, Personalized Studying <span class="date">July 19, 2025</span></h2>
+                    <p class="summary">This is a major update focused on making your study sessions more intelligent and effective. FlashySurf now learns from your mistakes to help you master your toughest subjects.</p>
+                    
+                    <h3>✨ New Features</h3>
+                    <ul>
+                        <li>
+                            <strong>Personalized Review System:</strong> FlashySurf now tracks the questions you answer incorrectly. It will then intelligently mix these "failed" questions back into your queue, giving you a second chance to master the concept.
+                        </li>
+                        <li>
+                            <strong>Smart Question Mix:</strong> Your flashcards are now a 60/40 blend of new material and previously failed questions. This ensures you're always learning something new while reinforcing areas where you need more practice.
+                        </li>
+                    </ul>
+                    <h3>🚀 Improvements</h3>
+                    <ul>
+                        <li>
+                            <strong>Better Repetition Avoidance:</strong> The algorithm for preventing recently seen questions from reappearing has been significantly improved. Your browsing will feel less repetitive and more productive.
+                        </li>
+                        <li>
+                            <strong>Automatic List Cleaning:</strong> When you correctly answer a question from your "failed" list, it's automatically removed. Your review queue always stays relevant to what you need to work on.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h2>Version 1.6.0 - More Control & Fewer Interruptions <span class="date">May 23, 2025</span></h2>
+                    <p class="summary">This update gives you more control over your study flow, allowing you to take breaks when you need to focus.</p>
+
+                    <h3>✨ New Features</h3>
+                    <ul>
+                        <li>
+                            <strong>"Take a Break" Timer:</strong> There's a new "30 Minute Break" button in the popup. If you need to focus on an article or get work done, you can instantly pause all flashcards for half an hour.
+                        </li>
+                    </ul>
+                     <h3>🚀 Improvements</h3>
+                    <ul>
+                        <li>
+                            <strong>Smarter Question Rotation:</strong> We now track the IDs of questions you've recently answered. This prevents you from seeing the same question back-to-back, making for a much smoother experience.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="update-entry">
+                    <h2>Version 1.5.0 - From Passive to Active Learning <span class="date">May 13, 2025</span></h2>
+                    <p class="summary">This update introduces powerful tools to help you actively engage with the material and learn more deeply from your mistakes.</p>
+
+                    <h3>✨ New Features</h3>
+                    <ul>
+                        <li>
+                            <strong>Note-Taking for Incorrect Answers:</strong> When you get a question wrong, you'll now see a "Take Notes" section. Writing down *why* you made a mistake is a proven way to reinforce learning. Your notes are saved in the popup for later review.
+                        </li>
+                        <li>
+                            <strong>Helpful Tips:</strong> Some questions will now display small tips to guide you toward the right way of thinking without giving away the answer.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="update-entry">
+                    <h2>Version 1.0 - 1.4 - The Foundation <span class="date">April - May, 2025</span></h2>
+                    <p class="summary">These initial versions laid the groundwork for FlashySurf, evolving from a simple script to a full-fledged browser extension with the core features you see today.</p>
+                    
+                    <h3>🚀 Key Milestones & Fixes</h3>
+                    <ul>
+                        <li>
+                            <strong>Browser Extension Launch (v1.1):</strong> FlashySurf graduated from a userscript to a proper extension, making it easier to install and configure for everyone.
+                        </li>
+                         <li>
+                            <strong>Closable Flashcards (v1.3):</strong> You no longer have to wait for the card to disappear. A close button appears after a short delay, giving you control.
+                        </li>
+                        <li>
+                            <strong>Improved Accuracy (v1.4):</strong> We made answer checking more robust and improved security by removing unnecessary permissions.
+                        </li>
+                        <li>
+                            <strong>Initial Release (v1.0):</strong> FlashySurf was born! The first version introduced the core concept of passive SAT learning with math/english questions, performance stats, and explanations.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo"><img src="images/Logo.png" alt="FlashySurf Logo"><span>© 2025 FlashySurf. All rights reserved.</span></a>
+                <div class="social-links">
+                    <a href="https://github.com/MaxDevv/FlashySurf" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+
+</body>
+</html>
