@@ -86,7 +86,7 @@ section { padding: 4rem 0; position: relative; }
 /* --- Small Features Grid Section ("And There's More...") --- */
 .dark-split-bg-section { padding-bottom: 8rem; }
 .dark-split-bg { position: absolute; top: 50%; left: 0; right: 0; bottom: 0; background-color: var(--color-secondary); pointer-events: none; z-index: -1; }
-.small-features-grid { display: grid; gap: 2rem; }
+.small-features-grid { display: grid; gap: 2rem;; }
 .feature-card-small { background-color: var(--color-white); padding: 1.5rem; border-radius: 0.5rem; box-shadow: var(--shadow-xl); text-align: center; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .feature-card-small:hover { transform: translateY(-5px); box-shadow: var(--shadow-2xl); }
 .feature-card-small .icon { display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; background-image: linear-gradient(to right, var(--color-primary), #60a5fa); color: var(--color-white); margin-bottom: 1rem; }
