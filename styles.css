@@ -29,7 +29,7 @@ img { max-width: 100%; height: auto; display: block; }
 .animated-item-delay-3 { transition-delay: 0.3s; }
 
 /* --- Layout & Container --- */
-.container { max-width: 1152px; margin: auto; padding: 0 1.5rem; }
+.container { max-width: 50vw; margin: auto; padding: 0 1.5rem; }
 section { padding: 4rem 0; position: relative; }
 .section-header { max-width: 48rem; margin: auto auto 4rem; text-align: center; }
 .section-header p { margin: 1rem auto 0; }
