@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding | FlashySurf</title>
+    <meta name="description"
+        content="Welcome to FlashySurf! A quick guide to get you started with passive SAT prep.">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Reusing styles from privacy.css for consistency */
+        .onboarding-header {
+            padding-top: 10rem;
+            padding-bottom: 3rem;
+            text-align: center;
+        }
+
+        .onboarding-header p {
+            margin: 1rem auto 0;
+            color: var(--color-text-light);
+            font-size: 1.25rem;
+            max-width: 42rem;
+        }
+
+        .onboarding-container {
+            padding-bottom: 5rem;
+        }
+
+        .onboarding-content {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 0.75rem;
+            padding: 3rem 3.5rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+
+        .onboarding-content h2 {
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            font-size: 1.75rem;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 0.75rem;
+        }
+
+        .onboarding-content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .onboarding-content h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-text-dark);
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        .onboarding-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .onboarding-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .onboarding-content li {
+            margin-bottom: 1rem;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .onboarding-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .onboarding-content strong {
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        /* NEW STYLES for Onboarding */
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+        }
+        
+        .column {
+            text-align: center;
+        }
+
+        .column img {
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            margin-bottom: 1rem;
+            max-width: 100%;
+        }
+
+        .single-column-media {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .single-column-media img {
+            max-width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+        }
+        
+        .tip-box {
+            background-color: #f9fafb;
+            border-left: 4px solid #2563eb; /* A blue accent */
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        .pep-talk-box {
+            background-color: #fefce8; /* A yellow accent */
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        .tip-box h3, .pep-talk-box h3 {
+            margin-top: 0;
+            color: var(--color-text-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            .onboarding-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="header-logo"><img src="/media/Logo.png"
+                        alt="FlashySurf Logo"><span>FlashySurf</span></a>
+                <nav class="main-nav">
+                    <a href="/#features">Features</a>
+                    <a href="/#gallery">Gallery</a>
+                    <a href="/#testimonials">Testimonials</a>
+                    <a href="/updates">Updates & Changes</a>
+                </nav>
+                <div class="header-cta">
+                    <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-website"
+                        target="_blank" rel="noopener" class="btn btn-primary btn-sm">Add to Chrome</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="onboarding-header">
+            <div class="container">
+                <div class="mx-auto" style="max-width: 48rem;">
+                    <h1>Welcome to FlashySurf! 🌊</h1>
+                    <p>The ultimate SAT prep tool, where you study without ever studying. This quick guide will show you how to get the most out of your new study tool.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="onboarding-container">
+            <div class="container">
+                <div class="onboarding-content">
+                    
+                    <h2>The Core Loop: How It Works</h2>
+                    <p>As you browse the web, a flashcard will occasionally appear. Give it your best shot, learn from the instant feedback, and then get right back to what you were doing. Here's what you'll see in action:</p>
+                    <div class="two-column-layout">
+                        <div class="column">
+                            <h3>Correct Answer ✅</h3>
+                            <img src="/media/Correct Answer Screenshot.png" alt="Flashcard showing a correct answer">
+                            <p>You get a green check, a brief explanation, and the card closes in 5 seconds.</p>
+                        </div>
+                        <div class="column">
+                            <h3>Incorrect Answer ❌</h3>
+                            <img src="/media/Incorrect Answer Screenshot.png" alt="Flashcard showing an incorrect answer">
+                            <p>You see the right answer, a detailed explanation, and have more time (20s) to review.</p>
+                        </div>
+                    </div>
+                    <p><strong>Heads-up:</strong> To avoid being annoying, there's always a <strong>3-minute delay</strong> between questions. You'll never get bombarded.</p>
+
+                    <h2>Your Secret Weapon: The Notes Feature 📝</h2>
+                    <p>When you get a question wrong, you'll be prompted to take notes. <strong>This is the single most important feature for boosting your score.</strong></p>
+                    <div class="single-column-media">
+                        <img src="/media/Note-Taking Interface Screenshot.png" alt="Note-taking interface on a flashcard">
+                    </div>
+
+                    <h3>Why This Is a Game-Changer:</h3>
+                    <ul>
+                        <li><strong>It forces active learning.</strong> The magic happens when you <strong>rephrase the explanation in your own words.</strong> This builds deep understanding, not just memorization.</li>
+                        <li><strong>Don't BS this part!</strong> Putting in the effort to write 1-2 clear sentences about <em>why</em> you were wrong will pay off massively.</li>
+                        <li><strong>It builds a personalized study guide.</strong> You can review all your notes anytime in the extension popup.</li>
+                    </ul>
+                    <div class="tip-box">
+                        <h3>Power User Tip 🚀</h3>
+                        <p>Before a practice test, copy your notes and feed them to an AI like ChatGPT with a prompt like: <em>"Based on these notes from my SAT prep, what are my biggest weaknesses and give me 5 last-minute tips."</em></p>
+                    </div>
+
+                    <h2>You're in Control: Customize Your Flow ⚙️</h2>
+                    <p>First, pin the extension for easy access! Click the <strong>Puzzle Piece (🧩)</strong> in your toolbar and then click the <strong>Pin (📌)</strong> next to FlashySurf.</p>
+                    <div class="single-column-media">
+                        <img src="/media/Pin-extension.gif" alt="Animation showing how to pin the extension">
+                    </div>
+                    <p>Now, click the FlashySurf icon to open the settings panel. From here, you can...</p>
+
+                    <div class="two-column-layout">
+                        <div class="column">
+                            <h3>1. Adjust Flashcard Frequency</h3>
+                            <img src="/media/Change-Probability.gif" alt="Adjusting flashcard frequency with a slider">
+                            <p>Use the slider to control how often questions appear. We recommend starting on 10%</p>
+                        </div>
+                        <div class="column">
+                            <h3>2. Take a Break When You Need It</h3>
+                            <img src="/media/30-min-break.gif" alt="Clicking the 30-minute break button">
+                            <p>Feeling overwhelmed? Hit the break button. A short pause is always better than quitting.</p>
+                        </div>
+                    </div>
+
+                    <h2>Track Your Growth & Get Help with Reports 📈</h2>
+                    <p>Once you've answered enough questions, you can generate a <strong>Personalized Performance Report.</strong> This report shows your overall accuracy and identifies your top 3 weakest topic areas.</p>
+                    <p><strong>Share it!</strong> This is designed to be shared. Post your report on SAT forums (like r/SAT), with your study group, or show it to a tutor. Getting targeted feedback from others is an incredible way to improve.</p>
+                    
+                    <div class="pep-talk-box">
+                        <h3>A Quick Pep Talk: Sticking With It 💪</h3>
+                        <p>Real talk: Someday, a flashcard will pop up at the worst possible moment. That’s normal. The users who see the biggest score increases are the ones who:</p>
+                        <ul>
+                            <li><strong>Push through</strong> the initial frustration.</li>
+                            <li><strong>Use the break button</strong> instead of quitting.</li>
+                            <li><strong>Write quality notes,</strong> even when they don't feel like it.</li>
+                            <li><strong>Trust the process.</strong> Passive learning works.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Need This Guide Again?</h2>
+                    <p>You can always find this page by clicking the <strong>"Help and Onboarding Screen"</strong> link in the FlashySurf popup.</p>
+                    <div class="single-column-media">
+                        <img src="/media/Help Link Screenshot.png" alt="Location of the 'Help and Onboarding Screen' link in the popup">
+                    </div>
+                    
+                    <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                    
+                    <p style="font-style: italic; text-align: center; color: var(--color-text-light);">You're ready to go! Close this tab and start surfing the web. Your first question is waiting. 🚀</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="/" class="footer-logo"><img src="/media/Logo.png" alt="FlashySurf Logo"><span>© 2025
+                        FlashySurf. All rights reserved.</span></a>
+                <div class="social-links">
+                    <a href="https://github.com/MaxDevv/FlashySurf" aria-label="GitHub" target="_blank"
+                        rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+
+</body>
+
+</html>
