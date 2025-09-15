@@ -3,10 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlashySurf | Turn Your Browsing into SAT Prep</title>
+    <title>FlashySurf | Study Anything without Ever Studying</title>
     <meta name="description"
-        content="Stop grinding. Start surfing. FlashySurf is a browser extension that helps you prepare for the SAT passively while you browse the web.">
+        content="Stop grinding. Start surfing. FlashySurf is the smart browser extension that helps you study any subject passively while you browse the web. Create custom flashcard collections or use our proven SAT system with 60-100 point improvements.">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Styles for new text-focused sections */
+        .process-steps {
+            margin-top: 3rem;
+        }
+        
+        .step-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .step-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem auto;
+        }
+        
+        .step-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-dark);
+        }
+        
+        .process-highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            img {
+                transform: scale(1.2);
+
+            }
+        }
+        
+        .highlight-text h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-dark);
+        }
+        
+        .learning-benefits {
+            margin-top: 3rem;
+        }
+        
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            justify-self: center;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            min-width: 17.5em;
+        }
+        
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+        }
+        
+        .benefit-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .benefit-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-dark);
+        }
+        
+        .learning-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .showcase-caption h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .process-highlight,
+            .learning-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+            
+            .step-grid,
+            .benefit-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
     
 </head>
 
@@ -18,10 +153,10 @@
                 <a href="/" class="header-logo"><img src="/media/Logo.png"
                         alt="FlashySurf Logo"><span>FlashySurf</span></a>
                 <nav class="main-nav">
-                    <a href="/#features">Features</a>
-                    <a href="/#gallery">Gallery</a>
-                    <a href="/#testimonials">Testimonials</a>
+                    <a href="/">Home</a>
                     <a href="/updates">Updates & Changes</a>
+                    <a href="/onboarding">Help & Onboarding</a>
+                    <a href="/creator">Creator</a>
                 </nav>
                 <div class="header-cta">
                     <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-website"
@@ -51,12 +186,10 @@
             </div>
             <div class="container">
                 <div class="mx-auto" style="max-width: 48rem;">
-                    <h1 class="mb-4 animated-item is-visible">Turn Your Procrastination into <span class="highlight">SAT
-                            Preparation.</span></h1>
+                    <h1 class="mb-4 animated-item is-visible">Study <span class="highlight">Anything</span> without Ever Studying.</h1>
                     <p class="mb-8 animated-item animated-item-delay-1 is-visible">FlashySurf is the smart browser
-                        extension that learns your weaknesses and integrates personalized SAT practice during your daily
-                        browsing. Stop grinding,
-                        start surfing, and watch your score climb effortlessly.</p>
+                        extension that turns your daily browsing into passive learning for any subject. Create custom flashcard collections or use our proven SAT system with 60-100 point improvements. Stop grinding,
+                        start surfing, and master any topic effortlessly.</p>
                     <div class="hero-buttons animated-item animated-item-delay-2 is-visible">
                         <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-website"
                             target="_blank" rel="noopener" class="btn btn-primary">Add to Chrome for Free</a>
@@ -69,101 +202,91 @@
         <section id="gallery" class="bg-light">
             <div class="container">
                 <div class="section-header animated-item is-visible">
-                    <h2 class="mb-4">See How It Works</h2>
-                    <p>From settings to solving questions, see how FlashySurf integrates into your browsing experience
-                        without being disruptive.</p>
+                    <h2 class="mb-4">How FlashySurf Works</h2>
+                    <p>FlashySurf transforms your regular browsing into productive learning time through three simple steps, working with any subject you want to master.</p>
                 </div>
-                <div class="slideshow-container animated-item animated-item-delay-1 is-visible">
-                    <div class="slideshow-viewport">
-                        <div class="slideshow-track" style="transform: translateX(-200%);">
-                            <div class="slide"><img
-                                    src="media/EcHQZ6MY8ZU_kq0FXm2OvoyJnk-0C7Ium5rbpU5iY9rQlkv5sC14CMCx9jjxqwLO9aTB3YgzXYzu3gxo6Olv1Ld0=s1280.jpg"
-                                    alt="A FlashySurf flashcard showing a math question about Sheila's bicycle."></div>
-                            <div class="slide"><img
-                                    src="media/8HUJOTNogHyp_huwVmK0Gh_NI-cZYCHZKj9AXVD3PD5Oq4gB-HETCsb6-g_m6gJTPnh2G7Z13KnhnoZx_vOitUBXdg=s1280.jpg"
-                                    alt="A flashcard showing 'Correct' feedback and an explanation for an English question.">
-                            </div>
-                            <div class="slide"><img
-                                    src="media/Dm9F3KnFVIO1-wbr0FWEqQB6rGDGPKxChIbuP4Tufc_NqOnlFK7OOxqeva6Vgane8ozZF9oOXTjBNmLSHCkc8Y29=s1280.jpg"
-                                    alt="A flashcard showing 'Incorrect' feedback for a math question with a countdown timer.">
-                            </div>
-                            <div class="slide"><img
-                                    src="media/u0AdHzF0s1dcu-LpYzw-22U18Ntd5McpePhR99ICVvdOIGuUWxAhXHJxvymKwcYSqbCbvLBhp59oF_ezcukNl4emxUI=s1280.jpg"
-                                    alt="The FlashySurf settings panel with a frequency slider and user accuracy statistics.">
-                            </div>
+                <div class="process-steps animated-item animated-item-delay-1 is-visible">
+                    <div class="step-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <h3>Browse Normally</h3>
+                            <p>Use the internet as you always do - read articles, watch videos, shop online. FlashySurf runs quietly in the background.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <h3>Answer Questions</h3>
+                            <p>Occasionally, a flashcard appears with a question from your selected collections. Take a moment to answer it.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <h3>Learn & Improve</h3>
+                            <p>Get instant feedback with explanations. Wrong answers trigger note-taking to reinforce learning. Then continue browsing!</p>
                         </div>
                     </div>
-                    <button class="slide-btn prev-btn" aria-label="Previous slide"><svg
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
-                        </svg></button>
-                    <button class="slide-btn next-btn" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
-                        </svg></button>
-                    <div class="slideshow-dots"><button class="dot"></button><button class="dot"></button><button
-                            class="dot active"></button><button class="dot"></button></div>
+                    <div class="process-highlight">
+                        <img src="/media/basic-flashysurf-flashcard-showcase.gif" alt="Animation showing basic flashcard answered in FlashySurf" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div class="highlight-text">
+                            <h4>It's That Simple</h4>
+                            <p>No dedicated study sessions required. No interrupting your workflow. Just passive learning that builds up over time, exactly like how you learned your native language.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="features">
             <div class="container">
-                <div class="interactive-features-grid">
-                    <div class="feature-list-pane animated-item is-visible">
-                        <h3 class="mb-2">A Seamless Study Experience</h3>
-                        <p class="mb-6">Take your SAT prep to the next level and make learning truly passive and
-                            effective.</p>
-                        <div class="feature-list">
-                            <button class="feature-list-btn active"
-                                data-image-src="media/EcHQZ6MY8ZU_kq0FXm2OvoyJnk-0C7Ium5rbpU5iY9rQlkv5sC14CMCx9jjxqwLO9aTB3YgzXYzu3gxo6Olv1Ld0=s1280.jpg">
-                                <div class="content">
-                                    <div class="title">Passive Learning Anywhere</div>
-                                    <div class="description">Real SAT questions appear as you browse, turning downtime
-                                        into study time.</div>
-                                </div>
-                                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                            clip-rule="evenodd"></path>
-                                    </svg></div>
-                            </button>
-                            <button class="feature-list-btn"
-                                data-image-src="media/Dm9F3KnFVIO1-wbr0FWEqQB6rGDGPKxChIbuP4Tufc_NqOnlFK7OOxqeva6Vgane8ozZF9oOXTjBNmLSHCkc8Y29=s1280.jpg">
-                                <div class="content">
-                                    <div class="title">Learn From Mistakes</div>
-                                    <div class="description">Get detailed explanations for every question to understand
-                                        the correct approach.</div>
-                                </div>
-                                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                            clip-rule="evenodd"></path>
-                                    </svg></div>
-                            </button>
-                            <button class="feature-list-btn"
-                                data-image-src="media/u0AdHzF0s1dcu-LpYzw-22U18Ntd5McpePhR99ICVvdOIGuUWxAhXHJxvymKwcYSqbCbvLBhp59oF_ezcukNl4emxUI=s1280.jpg">
-                                <div class="content">
-                                    <div class="title">Track Your Progress</div>
-                                    <div class="description">Instantly see your accuracy and stats to know where you
-                                        stand.</div>
-                                </div>
-                                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                            clip-rule="evenodd"></path>
-                                    </svg></div>
-                            </button>
+                <div class="section-header animated-item is-visible">
+                    <h2 class="mb-4">A Complete Learning Experience</h2>
+                    <p>FlashySurf v2.0 combines the proven effectiveness of our SAT system (60-100 point improvements) with the flexibility to study any subject through custom flashcard collections.</p>
+                </div>
+                <div class="learning-benefits animated-item animated-item-delay-1 is-visible">
+                    <div class="benefit-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                                </svg>
+                            </div>
+                            <h3>Study Any Subject</h3>
+                            <p>Create custom flashcard collections for languages, sciences, history, or any topic. Or use our built-in SAT collection with 1900+ questions and advanced AI targeting.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                                </svg>
+                            </div>
+                            <h3>Passive Learning</h3>
+                            <p>No scheduled study sessions. No interrupting your workflow. Questions appear naturally as you browse, making learning feel effortless and sustainable.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.847a4.5 4.5 0 003.09 3.09L15.75 12l-2.847.813a4.5 4.5 0 00-3.09 3.09z" />
+                                </svg>
+                            </div>
+                            <h3>Smart Algorithm</h3>
+                            <p>Advanced spaced repetition ensures you see failed questions again. For SAT collections, our AI identifies your 3 weakest topics and targets them specifically.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                </svg>
+                            </div>
+                            <h3>Active Learning</h3>
+                            <p>When you get questions wrong, you're prompted to take notes explaining your mistake. This active reflection dramatically improves retention and understanding.</p>
                         </div>
                     </div>
-                    <div class="feature-image-pane animated-item animated-item-delay-1 is-visible"><img
-                            src="media/EcHQZ6MY8ZU_kq0FXm2OvoyJnk-0C7Ium5rbpU5iY9rQlkv5sC14CMCx9jjxqwLO9aTB3YgzXYzu3gxo6Olv1Ld0=s1280.jpg"
-                            alt="Feature highlight showing a flashcard with a math question." id="feature-display-image"
-                            style="opacity: 1;"></div>
+                    <div class="learning-showcase">
+                        <img src="/media/collection-management-ui.png" alt="FlashySurf collection management interface showing multiple subjects" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+                        <div class="showcase-caption">
+                            <h4>Multiple Collections, One System</h4>
+                            <p>Manage all your subjects from one simple interface. Enable Spanish flashcards for your trip, SAT prep for the test, and biology for next week's exam - all running simultaneously in the background.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -173,8 +296,7 @@
             <div class="container">
                 <div class="section-header animated-item is-visible">
                     <h2 class="mb-4">And There's More...</h2>
-                    <p>FlashySurf is built with powerful, highly-requested features to personalize your learning
-                        experience.</p>
+                    <p>FlashySurf v2.0 is packed with powerful features for studying any subject with custom flashcard collections, AI assistance, and advanced learning algorithms.</p>
                 </div>
                 <div class="small-features-grid">
                     <div class="feature-card-small animated-item is-visible">
@@ -213,9 +335,8 @@
                                     d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
                                 </path>
                             </svg></div>
-                        <h4>Full SAT Coverage</h4>
-                        <p>Practice with a large bank of 1900+ real SAT questions from both the Math and English
-                            sections.</p>
+                        <h4>Custom Flashcard Collections</h4>
+                        <p>Create, import, and manage your own flashcard collections for any subject. Study languages, history, science, or stick with our proven 1900+ SAT question bank.</p>
                     </div>
                     <div class="feature-card-small animated-item animated-item-delay-1 is-visible">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -237,8 +358,38 @@
                                     d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88">
                                 </path>
                             </svg></div>
-                        <h4>Non-Intrusive</h4>
-                        <p>Designed to be a seamless part of your browsing, not an annoying distraction.</p>
+                        <h4>AI-Powered Generation</h4>
+                        <p>Upload study materials and let our AI create flashcard collections for you automatically, or build them manually with our intuitive interface.</p>
+                    </div>
+                    <div class="feature-card-small animated-item is-visible">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v3.776">
+                                </path>
+                            </svg></div>
+                        <h4>Collection Management</h4>
+                        <p>Create, organize, and manage multiple flashcard collections. Enable or disable collections to focus on specific subjects.</p>
+                    </div>
+                    <div class="feature-card-small animated-item animated-item-delay-1 is-visible">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3">
+                                </path>
+                            </svg></div>
+                        <h4>Import & Export</h4>
+                        <p>Drag-and-drop to import collections, or export your creations to share with others or backup your work.</p>
+                    </div>
+                    <div class="feature-card-small animated-item animated-item-delay-2 is-visible">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88">
+                                </path>
+                            </svg></div>
+                        <h4>Non-Intrusive Design</h4>
+                        <p>Seamlessly integrates into your browsing experience without being disruptive or annoying.</p>
                     </div>
                     <div class="spacer" style="width: 0px; height: 0px; padding: 0px; margin: 0px;">
                     </div>
@@ -251,9 +402,8 @@
                                 </path>
                             </svg>
                         </div>
-                        <h4>Algorithmic Weakness Detection</h4>
-                        <p>Automatically identifies your 3 weakest topic areas and serves more questions to help you
-                            improve.</p>
+                        <h4>Smart Learning Algorithm</h4>
+                        <p>Advanced spaced repetition and weakness detection (SAT collections only) ensures you focus on areas that need the most improvement across all your subjects.</p>
                     </div>
                 </div>
             </div>
@@ -263,7 +413,7 @@
             <div class="container">
                 <div class="section-header animated-item is-visible">
                     <h2 class="mb-4">What Our Users Say</h2>
-                    <p>Don't just take our word for it. Here's what students are saying about FlashySurf.</p>
+                    <p>Don't just take our word for it. Here's what students are saying about FlashySurf's proven SAT system - and now the same powerful passive learning works for any subject.</p>
                 </div>
                 <div class="testimonials-grid">
                     <div class="testimonial-card animated-item is-visible">
@@ -324,8 +474,7 @@
             <div class="container">
                 <div class="cta-section animated-item is-visible">
                     <h2 class="mb-4">Ready to Start Learning Smarter?</h2>
-                    <p class="mb-8">Join thousands of students who are turning their browsing time into better SAT
-                        scores. It's free and always will be.</p>
+                    <p class="mb-8">Join thousands of students who are turning their browsing time into productive learning for any subject. Create custom flashcard collections or use our proven SAT system. It's free and always will be.</p>
                     <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-website"
                         target="_blank" rel="noopener" class="btn">Add to Chrome for Free</a>
                 </div>

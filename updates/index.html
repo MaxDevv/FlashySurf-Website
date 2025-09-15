@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlashySurf Updates | What's New</title>
     <meta name="description"
-        content="See the latest features, improvements, and bug fixes for the FlashySurf SAT prep browser extension.">
+        content="See the latest features, improvements, and bug fixes for the FlashySurf study extension - from SAT prep to universal learning platform.">
     <link rel="stylesheet" href="/styles.css">
     <style>
         /* Custom styles for the updates page, built on your site's design system */
@@ -90,7 +90,8 @@
         }
 
         .update-entry li::before {
-            content: '✔';
+            content: '-•-';
+            margin-top: -0.3em;
             position: absolute;
             left: 0;
             top: 2px;
@@ -113,15 +114,15 @@
 <body>
 
     <header class="main-header">
-        <div class="container"">
+        <div class="container">
             <div class="header-content">
                 <a href="/" class="header-logo"><img src="/media/Logo.png"
                         alt="FlashySurf Logo"><span>FlashySurf</span></a>
                 <nav class="main-nav">
-                    <a href="/#features">Features</a>
-                    <a href="/#gallery">Gallery</a>
-                    <a href="/#testimonials">Testimonials</a>
+                    <a href="/">Home</a>
                     <a href="/updates">Updates & Changes</a>
+                    <a href="/onboarding">Help & Onboarding</a>
+                    <a href="/creator">Creator</a>
                 </nav>
                 <div class="header-cta">
                     <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=item-share-website"
@@ -136,8 +137,7 @@
             <div class="container">
                 <div class="mx-auto" style="max-width: 48rem;">
                     <h1>What's New in FlashySurf</h1>
-                    <p>We're always working to make your passive learning experience better. Here’s a log of our recent
-                        updates!</p>
+                    <p>We're always working to make your passive learning experience better. From SAT-focused tool to complete study platform - here's our journey.</p>
                 </div>
             </div>
         </section>
@@ -145,161 +145,286 @@
         <section class="updates-container">
             <div class="container">
                 <div class="update-entry">
-                    <h2>Version 1.8.0 - AI-Powered Learning That Knows Your Weaknesses.<span class="date">July 26,
-                            2025</span></h2>
-                    <p class="summary">🎉 My biggest update yet :D, FlashySurf now uses an advanced AI algoritm to
-                        identify exactly what topics you struggle with and serves up questions to help you master them.
-                        It's like having a personal SAT tutor that never sleeps.</p>
+                    <h2>Version 2.0.1 - Bug Fixes <span class="date">Recent</span></h2>
+                    <p class="summary">Minor but important fixes to ensure the v2.0 experience is smooth and stable.</p>
 
-                    <h3>🧠 Revolutionary Smart Learning</h3>
+                    <h3>Bug Fixes</h3>
                     <ul>
                         <li>
-                            <strong>Mind-Reading Question Selection:</strong> FlashySurf now groups all SAT questions
-                            into 87 topic clusters (think "algebra," "reading comprehension," "geometry," etc.). When
-                            you get questions wrong, it remembers not just that question, but the entire topic area. Then
-                            later, it shows you similar questions to help you master that concept.
+                            <strong>UI Layout Fix:</strong> Fixed bug that pushed flashcard collection names into the title area of the popup interface.
                         </li>
                         <li>
-                            <strong>Perfect Question Mix:</strong> Your flashcards are now perfectly balanced: 50% brand
-                            new questions to keep you learning, 30% questions similar to ones you've struggled with (to
-                            target your weak spots), and 20% direct review of questions you got wrong before.
-                        </li>
-                        <li>
-                            <strong>Weakness Detection:</strong> The system automatically identifies your 3 weakest
-                            topic areas and prioritizes giving you more practice in those subjects. No more random
-                            questions, every flashcard is strategically chosen to help you improve.
-                        </li>
-                    </ul>
-
-                    <h3>✨ Better Experience</h3>
-                    <ul>
-                        <li>
-                            <strong>Break button fix:</strong> 30-min break button no longer needs user reloads to
-                            activate.
-                        </li>
-                        <li>
-                            <strong>Added force delay:</strong> The extension now waits a few minutes between each
-                            flashcard to prevent annoying back-to-back flashcards.
-                        </li>
-                    </ul>
-
-                    <h3>🤓 For the Nerdsss</h3>
-                    <ul>
-                        <li>
-                            <strong>Semantic Clustering Algorithm:</strong> Implemented Agglomerative Clustering across
-                            question embeddings created via the bge-large-en-v1.5 model, to create 87 distinct topic
-                            clusters with mathematical precision,
-                        </li>
-                        <li>
-                            <strong>Advanced Analytics Engine:</strong> Built cluster-level accuracy tracking with
-                            performance weighting algorithms that calculate topic-specific struggle scores.
-                        </li>
-                        <li>
-                            <strong>Optimized Selection Logic:</strong> Redesigned the entire question selection
-                            pipeline with promise-based asynchronous handling and comprehensive debugging
-                            infrastructure.
-                        </li>
-                    </ul>
-                </div>
-                <div class="update-entry">
-                    <h2>Version 1.7.0 - Smarter, Personalized Studying <span class="date">July 19, 2025</span></h2>
-                    <p class="summary">This is a major update focused on making your study sessions more intelligent and
-                        effective. FlashySurf now learns from your mistakes to help you master your toughest subjects.
-                    </p>
-
-                    <h3>✨ New Features</h3>
-                    <ul>
-                        <li>
-                            <strong>Personalized Review System:</strong> FlashySurf now tracks the questions you answer
-                            incorrectly. It will then intelligently mix these "failed" questions back into your queue,
-                            giving you a second chance to master the concept.
-                        </li>
-                        <li>
-                            <strong>Smart Question Mix:</strong> Your flashcards are now a 60/40 blend of new material
-                            and previously failed questions. This ensures you're always learning something new while
-                            reinforcing areas where you need more practice.
-                        </li>
-                    </ul>
-                    <h3>🚀 Improvements</h3>
-                    <ul>
-                        <li>
-                            <strong>Better Repetition Avoidance:</strong> The algorithm for preventing recently seen
-                            questions from reappearing has been significantly improved. Your browsing will feel less
-                            repetitive and more productive.
-                        </li>
-                        <li>
-                            <strong>Automatic List Cleaning:</strong> When you correctly answer a question from your
-                            "failed" list, it's automatically removed. Your review queue always stays relevant to what
-                            you need to work on.
+                            <strong>Crash Prevention:</strong> Fixed critical bug that crashed the extension when no collections were enabled.
                         </li>
                     </ul>
                 </div>
 
                 <div class="update-entry">
-                    <h2>Version 1.6.0 - More Control & Fewer Interruptions <span class="date">May 23, 2025</span></h2>
-                    <p class="summary">This update gives you more control over your study flow, allowing you to take
-                        breaks when you need to focus.</p>
+                    <h2>Version 2.0 - The Big One <span class="date">Major Update</span></h2>
+                    <p class="summary">FlashySurf has evolved from a SAT-only tool into a complete study platform. After seeing consistent 60-100 point SAT improvements from users, I decided to expand the system to work with any subject while keeping all the proven passive learning features that made it so effective.</p>
 
-                    <h3>✨ New Features</h3>
+                    <h3>Core Architecture</h3>
                     <ul>
                         <li>
-                            <strong>"Take a Break" Timer:</strong> There's a new "30 Minute Break" button in the popup.
-                            If you need to focus on an article or get work done, you can instantly pause all flashcards
-                            for half an hour.
+                            <strong>Universal Study Platform:</strong> FlashySurf now supports custom flashcard collections for any subject. The extension name, version, and description have been updated to reflect this broader scope.
+                        </li>
+                        <li>
+                            <strong>Multi-Collection Support:</strong> Complete data structure overhaul to track progress across multiple flashcard collections simultaneously.
+                        </li>
+                        <li>
+                            <strong>Maintained SAT Excellence:</strong> The original SAT system remains as a flagship example with all its advanced features intact.
                         </li>
                     </ul>
-                    <h3>🚀 Improvements</h3>
+
+                    <h3>Custom Flashcard System</h3>
                     <ul>
                         <li>
-                            <strong>Smarter Question Rotation:</strong> We now track the IDs of questions you've
-                            recently answered. This prevents you from seeing the same question back-to-back, making for
-                            a much smoother experience.
+                            <strong>Collection Management:</strong> Create, import, edit, and delete custom flashcard collections. Each collection has its own statistics, notes, and metadata.
+                        </li>
+                        <li>
+                            <strong>Drag-and-Drop Interface:</strong> Easy collection uploads and downloads for backup or sharing with others.
+                        </li>
+                        <li>
+                            <strong>Collection Selection:</strong> Enable or disable specific collections to focus on exactly what you want to study.
+                        </li>
+                        <li>
+                            <strong>Safety Features:</strong> Confirmation dialogs prevent accidental collection deletion.
+                        </li>
+                    </ul>
+
+                    <h3>AI-Powered Generation</h3>
+                    <ul>
+                        <li>
+                            <strong>Automatic Collection Creation:</strong> Upload study materials and let AI create flashcard collections automatically.
+                        </li>
+                        <li>
+                            <strong>Daily Limits:</strong> 10 AI collections per day to keep the service sustainable.
+                        </li>
+                        <li>
+                            <strong>Custom Instructions:</strong> Add specific guidance about what you want the AI to focus on.
+                        </li>
+                    </ul>
+
+                    <h3>Enhanced Statistics</h3>
+                    <ul>
+                        <li>
+                            <strong>Cross-Collection Analytics:</strong> View aggregated performance across all active collections or dive into individual collection stats.
+                        </li>
+                        <li>
+                            <strong>Collection-Specific Tracking:</strong> Each collection maintains its own accuracy rates and question counts.
+                        </li>
+                        <li>
+                            <strong>Interactive Display:</strong> Hover tooltips show detailed statistics for individual collections.
+                        </li>
+                    </ul>
+
+                    <h3>User Interface</h3>
+                    <ul>
+                        <li>
+                            <strong>Redesigned Popup:</strong> Modern interface with intuitive collection management and responsive design.
+                        </li>
+                        <li>
+                            <strong>Visual Collection States:</strong> Clear indicators show which collections are active.
+                        </li>
+                        <li>
+                            <strong>Enhanced Help System:</strong> Improved onboarding and documentation for new features.
+                        </li>
+                        <li>
+                            <strong>Feedback Integration:</strong> Direct feedback links for suggestions and bug reports.
+                        </li>
+                    </ul>
+
+                    <h3>Technical Notes</h3>
+                    <ul>
+                        <li>
+                            <strong>Semantic Clustering Limitation:</strong> Advanced weakness detection using 87 semantic clusters currently only works with SAT collections. Custom collections use standard spaced repetition.
+                        </li>
+                        <li>
+                            <strong>Improved Error Handling:</strong> Better error management and user feedback for collection operations.
+                        </li>
+                        <li>
+                            <strong>Code Organization:</strong> Modular functions and improved maintainability for future features.
                         </li>
                     </ul>
                 </div>
 
                 <div class="update-entry">
-                    <h2>Version 1.5.0 - From Passive to Active Learning <span class="date">May 13, 2025</span></h2>
-                    <p class="summary">This update introduces powerful tools to help you actively engage with the
-                        material and learn more deeply from your mistakes.</p>
+                    <h2>Version 1.9.1 - Quality of Life <span class="date">August 2025</span></h2>
+                    <p class="summary">Small fixes and feature announcements to keep things running smoothly.</p>
 
-                    <h3>✨ New Features</h3>
+                    <h3>Improvements</h3>
                     <ul>
                         <li>
-                            <strong>Note-Taking for Incorrect Answers:</strong> When you get a question wrong, you'll
-                            now see a "Take Notes" section. Writing down *why* you made a mistake is a proven way to
-                            reinforce learning. Your notes are saved in the popup for later review.
+                            <strong>Hotkey Fix:</strong> Typing in note-taking textbox no longer triggers website hotkeys.
                         </li>
                         <li>
-                            <strong>Helpful Tips:</strong> Some questions will now display small tips to guide you
-                            toward the right way of thinking without giving away the answer.
+                            <strong>Feature Announcement:</strong> Added popup introducing the new generate reports feature.
                         </li>
                     </ul>
                 </div>
 
                 <div class="update-entry">
-                    <h2>Version 1.0 - 1.4 - The Foundation <span class="date">April - May, 2025</span></h2>
-                    <p class="summary">These initial versions laid the groundwork for FlashySurf, evolving from a simple
-                        script to a full-fledged browser extension with the core features you see today.</p>
+                    <h2>Version 1.9.0 - Performance Reports <span class="date">August 6, 2025</span></h2>
+                    <p class="summary">Added visual performance reports and major UI improvements with Shadow DOM implementation.</p>
 
-                    <h3>🚀 Key Milestones & Fixes</h3>
+                    <h3>New Features</h3>
                     <ul>
                         <li>
-                            <strong>Browser Extension Launch (v1.1):</strong> FlashySurf graduated from a userscript to
-                            a proper extension, making it easier to install and configure for everyone.
+                            <strong>Performance Reports:</strong> Generate detailed visual reports showing your top 3 weakest topic areas. Reports are shareable images perfect for tutors or study groups.
                         </li>
                         <li>
-                            <strong>Closable Flashcards (v1.3):</strong> You no longer have to wait for the card to
-                            disappear. A close button appears after a short delay, giving you control.
+                            <strong>Smart Caching:</strong> Reports cached for 12 hours for consistent feedback while minimizing API calls.
+                        </li>
+                    </ul>
+
+                    <h3>Algorithm Improvements</h3>
+                    <ul>
+                        <li>
+                            <strong>Note-Based Analysis:</strong> System now analyzes your saved notes from incorrect answers for more accurate weakness detection.
                         </li>
                         <li>
-                            <strong>Improved Accuracy (v1.4):</strong> We made answer checking more robust and improved
-                            security by removing unnecessary permissions.
+                            <strong>Optimized Question Selection:</strong> Fine-tuned to 35% semantically similar questions and 15% direct reviews.
+                        </li>
+                    </ul>
+
+                    <h3>UI Overhaul</h3>
+                    <ul>
+                        <li>
+                            <strong>Shadow DOM Implementation:</strong> Flashcards now use Shadow DOM to prevent CSS conflicts with websites.
                         </li>
                         <li>
-                            <strong>Initial Release (v1.0):</strong> FlashySurf was born! The first version introduced
-                            the core concept of passive SAT learning with math/english questions, performance stats, and
-                            explanations.
+                            <strong>Redesigned Settings:</strong> Cleaner popup layout with collapsible sections and better organization.
+                        </li>
+                        <li>
+                            <strong>Safety Features:</strong> Confirmation dialogs before deleting notes.
+                        </li>
+                    </ul>
+
+                    <h3>Bug Fixes</h3>
+                    <ul>
+                        <li>
+                            <strong>Review Question Fix:</strong> Fixed persistent issue where questions answered correctly after initial failure continued appearing as review questions.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h2>Version 1.8.0 - AI-Powered Learning <span class="date">July 26, 2025</span></h2>
+                    <p class="summary">Major algorithm enhancement with semantic clustering and intelligent weakness targeting.</p>
+
+                    <h3>Smart Learning Features</h3>
+                    <ul>
+                        <li>
+                            <strong>Semantic Question Clustering:</strong> All SAT questions grouped into 87 topic clusters using advanced similarity analysis.
+                        </li>
+                        <li>
+                            <strong>Intelligent Question Selection:</strong> Perfect balance: 50% new questions, 30% similar to failed ones, 20% direct review.
+                        </li>
+                        <li>
+                            <strong>Weakness Detection:</strong> System automatically identifies your 3 weakest topic areas and serves more questions to help improve.
+                        </li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li>
+                            <strong>Clustering Algorithm:</strong> Agglomerative Clustering using bge-large-en-v1.5 embeddings to create 87 distinct topic groups.
+                        </li>
+                        <li>
+                            <strong>Performance Analytics:</strong> Cluster-level accuracy tracking with performance weighting algorithms.
+                        </li>
+                        <li>
+                            <strong>Optimized Selection:</strong> Promise-based asynchronous question handling with comprehensive debugging.
+                        </li>
+                    </ul>
+
+                    <h3>User Experience</h3>
+                    <ul>
+                        <li>
+                            <strong>Break Button Fix:</strong> 30-minute break now works without requiring page reloads.
+                        </li>
+                        <li>
+                            <strong>Force Delay:</strong> Minimum delay between flashcards to prevent back-to-back questions.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h2>Version 1.7.0 - Personalized Review <span class="date">July 19, 2025</span></h2>
+                    <p class="summary">Introduced intelligent question tracking and personalized review system.</p>
+
+                    <h3>New Features</h3>
+                    <ul>
+                        <li>
+                            <strong>Failed Question Tracking:</strong> System remembers questions you answer incorrectly and mixes them back in for review.
+                        </li>
+                        <li>
+                            <strong>Smart Question Mix:</strong> 60% new questions, 40% previously failed questions for optimal learning.
+                        </li>
+                    </ul>
+
+                    <h3>Improvements</h3>
+                    <ul>
+                        <li>
+                            <strong>Better Repetition Avoidance:</strong> Improved algorithm prevents recently answered questions from reappearing.
+                        </li>
+                        <li>
+                            <strong>Automatic List Cleaning:</strong> Questions correctly answered are automatically removed from the failed list.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h2>Version 1.6.0 - Break Timer <span class="date">May 23, 2025</span></h2>
+                    <p class="summary">Added break functionality and improved question rotation.</p>
+
+                    <h3>New Features</h3>
+                    <ul>
+                        <li>
+                            <strong>30-Minute Break Timer:</strong> Pause all flashcards when you need to focus on work or reading.
+                        </li>
+                    </ul>
+
+                    <h3>Improvements</h3>
+                    <ul>
+                        <li>
+                            <strong>Question ID Tracking:</strong> Prevents seeing the same question back-to-back for smoother experience.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h2>Version 1.5.0 - Note-Taking <span class="date">May 13, 2025</span></h2>
+                    <p class="summary">Introduced active learning through note-taking on incorrect answers.</p>
+
+                    <h3>New Features</h3>
+                    <ul>
+                        <li>
+                            <strong>Note-Taking for Incorrect Answers:</strong> Write down why you made a mistake to reinforce learning. Notes saved in popup for review.
+                        </li>
+                        <li>
+                            <strong>Question Tips:</strong> Some questions now display helpful tips without giving away the answer.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h2>Early Versions (1.0 - 1.4) <span class="date">April - May 2025</span></h2>
+                    <p class="summary">Foundation releases that established FlashySurf as a reliable study tool.</p>
+
+                    <h3>Key Milestones</h3>
+                    <ul>
+                        <li>
+                            <strong>Browser Extension Launch (v1.1):</strong> Graduated from userscript to proper extension for easier installation.
+                        </li>
+                        <li>
+                            <strong>Closable Flashcards (v1.3):</strong> Added close button after timed delay for user control.
+                        </li>
+                        <li>
+                            <strong>Improved Accuracy (v1.4):</strong> Enhanced answer checking and removed unnecessary permissions.
+                        </li>
+                        <li>
+                            <strong>Initial Release (v1.0):</strong> Core concept of passive SAT learning with math/english questions, stats, and explanations.
                         </li>
                     </ul>
                 </div>
