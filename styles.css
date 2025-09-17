@@ -29,7 +29,7 @@ img { max-width: 100%; height: auto; display: block; }
 .animated-item-delay-3 { transition-delay: 0.3s; }
 
 /* --- Layout & Container --- */
-.container { max-width: 50vw; margin: auto; padding: 0 1.5rem; }
+.container { max-width: max(50vw, 80em); margin: auto; padding: 0 1.5rem; }
 section { padding: 4rem 0; position: relative; }
 .section-header { max-width: 48rem; margin: auto auto 4rem; text-align: center; }
 .section-header p { margin: 1rem auto 0; }
@@ -42,8 +42,13 @@ section { padding: 4rem 0; position: relative; }
 .header-content { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
 .header-logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem; font-weight: 700; color: var(--color-text-dark); text-decoration: none; }
 .header-logo img { width: 32px; height: 32px; }
+.main-nav { display: flex; align-items: center; gap: 1.5rem; }
 .main-nav a { padding: 0.5rem 1rem; color: var(--color-text-light); font-weight: 500; text-decoration: none; transition: color 0.15s ease; }
 .main-nav a:hover { color: var(--color-text-dark); }
+
+/* Mobile menu button */
+.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--color-text-dark); }
+.mobile-menu-btn svg { width: 24px; height: 24px; }
 
 /* --- Buttons --- */
 .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 2rem; border-radius: 0.375rem; font-weight: 600; font-size: 1rem; border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: all 0.2s ease; box-shadow: var(--shadow-md); }
@@ -122,19 +127,129 @@ section { padding: 4rem 0; position: relative; }
 .social-links a:hover { color: var(--color-text-dark); border-color: var(--color-text-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
 /* --- Responsive Design --- */
-@media (max-width: 767px) { .main-nav, .header-cta { display: none; } }
-@media (min-width: 640px) { .footer-content { flex-direction: row; justify-content: space-between; } .testimonials-grid, .small-features-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 768px) {
-    h1 { font-size: 3.75rem; } h2 { font-size: 2.5rem; }
-    section { padding: 5rem 0; } .hero-section { padding-top: 12rem; padding-bottom: 6rem; }
-    .interactive-features-grid { grid-template-columns: 1fr 1fr; }
+/* Mobile-first approach - styles apply to all screens by default */
+@media (max-width: 767px) {
+    .container { max-width: 100%; padding: 0 1rem; }
+    
+    h1 { font-size: 2rem; letter-spacing: -0.02em; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.375rem; }
+    h4 { font-size: 1.125rem; }
+    p { font-size: 1rem; max-width: 100%; }
+    
+    section { padding: 2rem 0; }
+    .hero-section { padding-top: 6rem; padding-bottom: 3rem; }
+    .section-header { margin-bottom: 2rem; }
+    .section-header h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+    .section-header p { font-size: 1rem; }
+    
+    .main-nav, .header-cta { display: none; }
+    .mobile-menu-btn { display: block; }
+    
+    .hero-buttons { flex-direction: column; align-items: center; gap: 0.75rem; }
+    .btn { width: 100%; max-width: 280px; padding: 0.75rem 1.5rem; font-size: 1rem; }
+    
+    /* Touch-friendly improvements */
+    .feature-list-btn, .btn, a {
+        min-height: 44px; /* Recommended minimum touch target size */
+        touch-action: manipulation;
+    }
+    
+    /* Prevent horizontal scroll on mobile */
+    html, body { overflow-x: hidden; }
+    
+    /* Better image handling on mobile */
+    img { max-width: 100%; height: auto; }
+    
+    .step-grid, .benefit-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .process-highlight, .learning-showcase {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .small-features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .feature-card-small { padding: 1.25rem; }
+    
+    .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testimonial-card { padding: 1.5rem; }
+    
+    .cta-section { padding: 2rem 1.5rem; }
+    .cta-section h2 { font-size: 1.75rem; }
+    .cta-section p { font-size: 1rem; }
+    
+    .main-footer { padding: 2rem 0; }
+    .footer-content { flex-direction: column; gap: 1rem; }
+    
+    .interactive-features-grid { grid-template-columns: 1fr; }
+    
+    .feature-list-btn { padding: 1rem; font-size: 1rem; }
+    .feature-image-pane img { max-width: 100%; height: auto; }
 }
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .container { max-width: 90%; padding: 0 2rem; }
+    
+    h1 { font-size: 2.75rem; }
+    h2 { font-size: 2.25rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    p { font-size: 1.125rem; }
+    
+    section { padding: 3rem 0; }
+    .hero-section { padding-top: 8rem; padding-bottom: 4rem; }
+    .section-header { margin-bottom: 3rem; }
+    
+    .hero-buttons { flex-direction: row; gap: 1rem; }
+    .btn { width: auto; }
+    
+    .step-grid, .benefit-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .process-highlight, .learning-showcase {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .small-features-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    
+    .interactive-features-grid { grid-template-columns: 1fr 1fr; }
+    
+    .main-nav { display: flex; }
+    .header-cta { display: block; }
+}
+
+/* Desktop styles */
 @media (min-width: 1024px) {
-    .testimonials-grid { grid-template-columns: repeat(4, 1fr); }
+    .container { max-width: max(50vw, 80em, 1200px); padding: 0 1.5rem; }
+    
+    h1 { font-size: 3.75rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.25rem; }
+    p { font-size: 1.125rem; max-width: 65ch; }
+    
+    section { padding: 5rem 0; }
+    .hero-section { padding-top: 12rem; padding-bottom: 6rem; }
+    .section-header { margin-bottom: 4rem; }
+    
+    .step-grid, .benefit-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+    .process-highlight, .learning-showcase {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+    
+    .small-features-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .testimonials-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
     .testimonial-card:nth-child(2) { margin-top: 2rem; }
-    /* Omer's card, a good bit lower for a dynamic look */
-    .testimonial-card:nth-child(4) { margin-top: 5rem; } 
-    .small-features-grid { grid-template-columns: repeat(3, 1fr); }
+    .testimonial-card:nth-child(4) { margin-top: 5rem; }
+    
+    .interactive-features-grid { grid-template-columns: 1fr 1fr; }
+    
+    .hero-buttons { flex-direction: row; gap: 1rem; }
+    .btn { width: auto; }
 }
 
 .notransition {

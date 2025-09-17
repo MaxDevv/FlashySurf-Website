@@ -4,6 +4,7 @@ function getUTMParams() {
   return {
     source: params.get("utm_source"),
     campaign: params.get("utm_campaign"),
+    referrer: document.referrer
   };
 }
 
