@@ -38,15 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         prevButton.addEventListener('click', () => { moveToSlide((currentIndex === 0) ? slides.length - 1 : currentIndex - 1); });
         nextButton.addEventListener('click', () => { moveToSlide((currentIndex === slides.length - 1) ? 0 : currentIndex + 1); });
+
+
+        // *temporary carousel fix*
+        track.classList.add('notransition');
+        for (let index = 0; index < 4; index++) {
+            document.querySelector("button.slide-btn.next-btn").click();
+        }
+        track.offsetHeight;
+        track.classList.remove('notransition');
     }
 
-    // *temporary carousel fix*
-    track.classList.add('notransition');
-    for (let index = 0; index < 4; index++) {
-        document.querySelector("button.slide-btn.next-btn").click();
-    }
-    track.offsetHeight;
-    track.classList.remove('notransition');
 
     // --- Interactive Feature List Functionality ---
     const featureButtons = document.querySelectorAll('.feature-list-btn');

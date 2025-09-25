@@ -10,13 +10,11 @@ function getUTMParams() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Near entry of your product, init Mixpanel
-mixpanel.init("22a8b73e3d3e331db77e3ea39db149be", {
-    debug: false,
-    track_pageview: false,
-    persistence: "localStorage",
-});
-console.log("Mixpanel global is:", mixpanel);
-
+    mixpanel.init("22a8b73e3d3e331db77e3ea39db149be", {
+        debug: false,
+        track_pageview: false,
+        persistence: "localStorage",
+    });
     mixpanel.track('Visit Website', {
         ...getUTMParams()
 
@@ -30,3 +28,5 @@ console.log("Mixpanel global is:", mixpanel);
         })
     })
 });
+
+
