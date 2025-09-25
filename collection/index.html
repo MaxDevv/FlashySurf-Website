@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview & Download Collection | FlashySurf</title>
-    <meta name="description"
-        content="Download custom flashcard collections to supercharge your passive learning with FlashySurf.">
+    <meta name="description"" id="meta-description" content="Study and learn easily using FlashySurf to supercharge your passive learning and Study without Ever Studying.">
     <link rel="stylesheet" href="/styles.css">
+    <meta charset="utf-8">
+
     <style>
         /* Custom styles for the collection download page */
         .collection-header {
@@ -592,6 +593,12 @@
             return; // Stop the script if no ID is found
         }
 
+        // Pseudo Title for google seo
+        let pseudoTitle = new URL(window.location.href).pathname.split("/")[3].replace("-", " ");
+        document.title = `${pseudoTitle} Flashcards | FlashySurf Collection`
+        document.querySelector('#meta-description').setAttribute('content', `Study and learn "${pseudoTitle}" easily using FlashySurf to supercharge your passive learning and Study without Ever Studying.`);
+        
+
         // --- 3. Fetch Collection Data from API ---
         fetch("https://add-retreive-collection-1085676987010.europe-west1.run.app",  {
 				method: 'POST',
@@ -612,10 +619,11 @@
                 const { title, description, collection } = data;
 
                 // --- 4. Populate Page with Fetched Data ---
-                document.title = `${title} | FlashySurf Collection`;
+                document.title = `${title} Flashcards | FlashySurf Collection`;
                 titleElement.textContent = title;
                 descriptionElement.textContent = description;
-
+                document.querySelector('#meta-description').setAttribute('content', `Study and learn "${title}" easily using FlashySurf to supercharge your passive learning and Study without Ever Studying.`);
+        
                 // --- 5. Set up the Download Button ---
                 setupDownloadButton(title, collection);
 
