@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer a Friend | FlashySurf</title>
+    <meta name="description"
+        content="Refer friends to FlashySurf and earn unlimited points. Get 75 points for every friend who installs and studies.">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Reusing consistent styles from onboarding */
+        .page-header {
+            padding-top: 8rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header .highlight {
+            color: var(--color-primary);
+            background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+            padding: 0 0.5rem;
+            border-radius: 8px;
+        }
+
+        .content-container {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            max-width: 42rem;
+            margin: 0 auto 5rem auto;
+        }
+
+        /* Referral Box Styling */
+        .referral-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .referral-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .referral-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            color: var(--color-text-dark);
+            background: white;
+        }
+
+        .btn-copy {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-copy:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-copy.copied {
+            background-color: #059669;
+        }
+
+        /* Steps Styling */
+        .steps-list {
+            margin: 2rem 0;
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--color-primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--color-text-dark);
+        }
+
+        .step-content p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Warning/Info Boxes */
+        .info-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--color-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .error-state {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .success-state {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .referral-input-group {
+                flex-direction: column;
+            }
+            .btn-copy {
+                padding: 0.75rem;
+            }
+            .content-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="header-logo"><img src="/media/Logo.png"
+                        alt="FlashySurf Logo"><span>FlashySurf</span></a>
+                <nav class="main-nav">
+                    <a href="/">Home</a>
+                    <a href="/decks/">Flashcard Decks</a>
+                    <a href="/updates">Updates & Changes</a>
+                    <a href="/onboarding">Help & Onboarding</a>
+                </nav>
+                <div class="header-cta">
+                    <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb?utm_source=refer-page"
+                        target="_blank" rel="noopener" class="btn btn-primary btn-sm">Add to Chrome</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <div class="mx-auto" style="max-width: 48rem; display: flex; flex-direction: column; align-items: center;">
+                    <h1>Refer a Friend & <br><span class="highlight">Earn Unlimited Points</span></h1>
+                    <p class="mb-8" style="font-size: 1.25rem; color: var(--color-text-light);">
+                        Help your friends study smarter. Earn 75 points for every friend who joins.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <!-- ERROR STATE: Shown if no userID is present -->
+            <div id="error-view" class="content-container error-state">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🧩</div>
+                <h2>Link Not Found</h2>
+                <p>We couldn't find your unique referral ID. To get your personal link:</p>
+                <ol style="text-align: left; max-width: 300px; margin: 1.5rem auto; line-height: 1.8;">
+                    <li>Open the <strong>FlashySurf Extension</strong></li>
+                    <li>Look for the referral message</li>
+                    <li>Click <strong>"Click here to get started :D"</strong></li>
+                </ol>
+                <a href="https://chromewebstore.google.com/detail/ldajenfdgimgdajklkohhljdgdalcedb" class="btn btn-primary">Install Extension</a>
+            </div>
+
+            <!-- SUCCESS STATE: Shown if userID is valid -->
+            <div id="success-view" class="content-container success-state">
+                
+                <div class="referral-box">
+                    <h3 style="margin-bottom: 0.5rem;">Your Unique Referral Link</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Share this link with friends to start earning.</p>
+                    
+                    <div class="referral-input-group">
+                        <input type="text" id="referral-link" class="referral-input" readonly value="Loading...">
+                        <button id="copy-btn" class="btn-copy">Copy Link</button>
+                    </div>
+                </div>
+
+                <h3>How it works:</h3>
+                <ul class="steps-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Share your link</h3>
+                            <p>Send the link above to a friend. <strong>Important:</strong> They must visit FlashySurf using this specific link for it to count.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Friend installs FlashySurf</h3>
+                            <p>Once they add the extension to Chrome and start using it, our system detects the referral.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>You get 75 Points instantly</h3>
+                            <p>That's enough for <strong>3+ breaks</strong> (20pts each) or <strong>8 skips</strong> (9pts each). There is no limit to how many friends you can refer!</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>📊 How to check your stats:</strong>
+                    <p>Open the FlashySurf extension popup, scroll down to the bottom, and click on <strong>"Referral Stats"</strong> to expand the details. You'll see your total referred friends and total points earned there.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="/" class="footer-logo"><img src="/media/Logo.png" alt="FlashySurf Logo"><span>© 2025
+                        FlashySurf. All rights reserved.</span></a>
+                <div class="social-links">
+                    <a href="https://github.com/MaxDevv/FlashySurf" aria-label="GitHub" target="_blank"
+                        rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            let userId = urlParams.get('userID');
+            
+            // Storage key for persistence
+            const STORAGE_KEY = 'flashysurf_uid_cached';
+
+            // 1. If ID is in URL, save it
+            if (userId) {
+                localStorage.setItem(STORAGE_KEY, userId);
+                
+                // Optional: Clean URL so it looks nicer, but keep the page logic working
+                // const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                // window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+            } else {
+                // 2. If not in URL, try to recover from storage
+                userId = localStorage.getItem(STORAGE_KEY);
+            }
+
+            const errorView = document.getElementById('error-view');
+            const successView = document.getElementById('success-view');
+            const linkInput = document.getElementById('referral-link');
+            const copyBtn = document.getElementById('copy-btn');
+
+            if (userId && userId !== "null" && userId !== "undefined") {
+                // SUCCESS: Generate link
+                const referralUrl = `https://flashysurf.com/?ref=${userId}`;
+                
+                linkInput.value = referralUrl;
+                successView.style.display = 'block';
+                errorView.style.display = 'none';
+
+                // Copy Logic
+                copyBtn.addEventListener('click', () => {
+                    linkInput.select();
+                    linkInput.setSelectionRange(0, 99999); // For mobile devices
+                    
+                    navigator.clipboard.writeText(referralUrl).then(() => {
+                        const originalText = copyBtn.innerText;
+                        copyBtn.innerText = 'Copied!';
+                        copyBtn.classList.add('copied');
+                        
+                        setTimeout(() => {
+                            copyBtn.innerText = originalText;
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    });
+                });
+
+            } else {
+                // ERROR: No ID found
+                successView.style.display = 'none';
+                errorView.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

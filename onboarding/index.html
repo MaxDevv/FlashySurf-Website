@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding | FlashySurf</title>
+    <title>Onboarding | FlashySurf v2.1</title>
     <meta name="description"
-        content="Welcome to FlashySurf v2.0! A comprehensive guide to get you started with passive learning for any subject using custom flashcard collections.">
+        content="Welcome to FlashySurf v2.1! A comprehensive guide to get you started with passive learning for any subject using custom flashcard collections. Now with Gamification and Anki Support.">
     <link rel="stylesheet" href="/styles.css">
     <style>
         /* Reusing styles from privacy.css for consistency */
@@ -101,7 +101,7 @@
             align-items: flex-start;
             margin-top: 2rem;
         }
-        
+
         .column {
             text-align: center;
         }
@@ -125,39 +125,92 @@
             box-shadow: var(--shadow-md);
             border: 1px solid var(--color-border);
         }
-        
+
         .tip-box {
             background-color: #f9fafb;
-            border-left: 4px solid #2563eb; /* A blue accent */
+            border-left: 4px solid #2563eb;
+            /* A blue accent */
             padding: 1.5rem 2rem;
             margin: 2.5rem 0;
             border-radius: 0 0.5rem 0.5rem 0;
         }
 
         .pep-talk-box {
-            background-color: #fefce8; /* A yellow accent */
+            background-color: #fefce8;
+            /* A yellow accent */
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        /* NEW STYLE for Gamification/Gold accents */
+        .gold-box {
+            background-color: #fffbeb;
             border-left: 4px solid #f59e0b;
             padding: 1.5rem 2rem;
             margin: 2.5rem 0;
             border-radius: 0 0.5rem 0.5rem 0;
         }
 
-        .tip-box h3, .pep-talk-box h3 {
+        .tip-box h3,
+        .pep-talk-box h3 {
             margin-top: 0;
             color: var(--color-text-dark);
         }
-        
+
         @media (max-width: 768px) {
             .two-column-layout {
                 grid-template-columns: 1fr;
             }
+
             .onboarding-content {
                 padding: 2rem 1.5rem;
             }
         }
     </style>
-    
+
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const myGcmID = urlParams.get('gcmID');
+        const referrerId = localStorage.getItem('flashysurf_referrer');
+        
+        if (localStorage.getItem('already_triggered_referral')) {
+            return; // Prevent multiple triggers
+        }
+        // 1. CLEAN URL IMMEDIATELY (Security/Privacy)
+        if (myGcmID) {
+            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+        }
+
+        // 2. TRIGGER REFERRAL
+        // Only proceed if we have BOTH a current token (from extension) AND a referrer (from cookie/storage)
+        if (myGcmID && referrerId) {
+
+            fetch('https://referral-system-1085676987010.europe-west1.run.app/trigger-referral', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    referrerId: referrerId,
+                    newUserFcmToken: myGcmID // We use the Token to identify the new user
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log("Referral successful!");
+                        // Clear storage so reloading this page doesn't spam the server
+                        localStorage.removeItem('flashysurf_referrer');
+                        localStorage.setItem('already_triggered_referral', 'true');
+                    }
+                })
+                .catch(err => console.error("Referral check failed", err));
+        }
+    });
+</script>
 
 <body>
 
@@ -168,7 +221,7 @@
                         alt="FlashySurf Logo"><span>FlashySurf</span></a>
                 <nav class="main-nav">
                     <a href="/">Home</a>
-                    <a href="/blog/">Blog</a>
+                    <a href="/decks/">Flashcard Decks</a>
                     <a href="/updates">Updates & Changes</a>
                     <a href="/onboarding">Help & Onboarding</a>
                     <a href="/creator">Creator</a>
@@ -185,8 +238,10 @@
         <section class="onboarding-header">
             <div class="container">
                 <div class="mx-auto" style="max-width: 48rem;">
-                    <h1>Welcome to FlashySurf v2.0 :D</h1>
-                    <p>The ultimate study tool where you study <strong>anything</strong> without ever studying. Create custom flashcard collections for any subject, or use our proven SAT system. This comprehensive guide will show you how to get the most out of your new study platform.</p>
+                    <h1>Welcome to FlashySurf v2.1 :D</h1>
+                    <p>The ultimate study tool where you study <strong>anything</strong> without ever studying. Create
+                        custom flashcard collections for any subject, or use our proven SAT system. This comprehensive
+                        guide will show you how to get the most out of your new study platform.</p>
                 </div>
             </div>
         </section>
@@ -194,42 +249,67 @@
         <section class="onboarding-container">
             <div class="container">
                 <div class="onboarding-content">
-                    
+
                     <h2>The Core Loop: How It Works</h2>
-                    <p>As you browse the web, a flashcard will occasionally appear. Give it your best shot, learn from the instant feedback, and then get right back to what you were doing. Here's what you'll see in action:</p>
+                    <p>As you browse the web, a flashcard will occasionally appear. Give it your best shot, learn from
+                        the instant feedback, and then get right back to what you were doing. Here's what you'll see in
+                        action:</p>
                     <div class="two-column-layout">
                         <div class="column">
                             <h3>Correct Answer ✅</h3>
                             <img src="/media/Correct Answer Screenshot.png" alt="Flashcard showing a correct answer">
-                            <p>You get a green check, a brief explanation, and the card closes in 5 seconds.</p>
+                            <p>You get a green check, a brief explanation, and <strong>+4 Points</strong>!</p>
                         </div>
                         <div class="column">
                             <h3>Incorrect Answer ❌</h3>
-                            <img src="/media/Incorrect Answer Screenshot.png" alt="Flashcard showing an incorrect answer">
-                            <p>You see the right answer, a detailed explanation, and have more time (20s) to review.</p>
+                            <img src="/media/Incorrect Answer Screenshot.png"
+                                alt="Flashcard showing an incorrect answer">
+                            <p>You see the right answer, explanation, and earn <strong>+1 Point</strong> for trying.</p>
                         </div>
                     </div>
-                    <p><strong>Heads-up:</strong> To avoid being annoying, there's always a <strong>3-minute delay</strong> between questions. You'll never get bombarded.</p>
+                    <p><strong>Heads-up:</strong> To avoid being annoying, there's always a <strong>3-minute
+                            delay</strong> between questions. You'll never get bombarded.</p>
+                    
+                    <!-- NEW GAMIFICATION SECTION INSERTED HERE -->
+                    <div class="gold-box">
+                        <h3>🎉 Gamification & Economy</h3>
+                        <p>Studying now pays off. We've added a points system and economy to keep you motivated:</p>
+                        <ul>
+                            <li><strong>Earn Points:</strong> +4 for correct answers, +1 for incorrect (Daily cap: 50).</li>
+                            <li><strong>Refer Friends:</strong> Get <strong>75 Points</strong> instantly for every friend you refer.</li>
+                            <li><strong>Spend Points:</strong> Buy <strong>30-minute breaks</strong> (20 pts), <strong>Skip Cards</strong> (9 pts), or unlock <strong>Visual Themes</strong> (Galaxy, Gold, etc).</li>
+                        </ul>
+                        <p>Check your balance and the new Theme Store in the extension popup!</p>
+                    </div>
 
                     <h2>Your Secret Weapon: The Notes Feature 📝</h2>
-                    <p>When you get a question wrong, you'll be prompted to take notes. <strong>This is the single most important feature for boosting your score.</strong></p>
+                    <p>When you get a question wrong, you'll be prompted to take notes. <strong>This is the single most
+                            important feature for boosting your score.</strong></p>
                     <div class="single-column-media">
-                        <img src="/media/Note-Taking Interface Screenshot.png" alt="Note-taking interface on a flashcard">
+                        <img src="/media/Note-Taking Interface Screenshot.png"
+                            alt="Note-taking interface on a flashcard">
                     </div>
 
                     <h3>Why This Is a Game-Changer:</h3>
                     <ul>
-                        <li><strong>It forces active learning.</strong> The magic happens when you <strong>rephrase the explanation in your own words.</strong> This builds deep understanding, not just memorization.</li>
-                        <li><strong>Don't BS this part!</strong> Putting in the effort to write 1-2 clear sentences about <em>why</em> you were wrong will pay off massively.</li>
-                        <li><strong>It builds a personalized study guide.</strong> You can review all your notes anytime in the extension popup.</li>
+                        <li><strong>It forces active learning.</strong> The magic happens when you <strong>rephrase the
+                                explanation in your own words.</strong> This builds deep understanding, not just
+                            memorization.</li>
+                        <li><strong>Don't BS this part!</strong> Putting in the effort to write 1-2 clear sentences
+                            about <em>why</em> you were wrong will pay off massively.</li>
+                        <li><strong>It builds a personalized study guide.</strong> You can review all your notes anytime
+                            in the extension popup.</li>
                     </ul>
                     <div class="tip-box">
                         <h3>Power User Tip 🚀</h3>
-                        <p>Before a practice and the real test, copy your notes and feed them to an AI like ChatGPT with a prompt like: <em>"Based on these notes from my study sessions, what are my biggest weaknesses and give me 5 last-minute tips."</em></p>
+                        <p>Before a practice and the real test, copy your notes and feed them to an AI like ChatGPT with
+                            a prompt like: <em>"Based on these notes from my study sessions, what are my biggest
+                                weaknesses and give me 5 last-minute tips."</em></p>
                     </div>
 
                     <h2>You're in Control: Customize Your Flow ⚙️</h2>
-                    <p>First, pin the extension for easy access! Click the <strong>Puzzle Piece (🧩)</strong> in your toolbar and then click the <strong>Pin (📌)</strong> next to FlashySurf.</p>
+                    <p>First, pin the extension for easy access! Click the <strong>Puzzle Piece (🧩)</strong> in your
+                        toolbar and then click the <strong>Pin (📌)</strong> next to FlashySurf.</p>
                     <div class="single-column-media">
                         <img src="/media/Pin-extension.gif" alt="Animation showing how to pin the extension">
                     </div>
@@ -244,17 +324,28 @@
                         <div class="column">
                             <h3>2. Take a Break When You Need It</h3>
                             <img src="/media/30-min-break.gif" alt="Clicking the 30-minute break button">
-                            <p>Feeling overwhelmed? Hit the break button. A short pause is always better than quitting.</p>
+                            <p>Feeling overwhelmed? Spend <strong>20 Points</strong> to buy a 30-minute break.</p>
                         </div>
                     </div>
+                    
+                    <!-- NEW WEBSITE EXCLUSION SECTION -->
+                    <div class="single-column-media">
+                        <img src="/media/Website-Exclusion-Input.png" alt="Screenshot showing the new excluded websites textarea">
+                    </div>
+                    <p><strong>Website Exclusion:</strong> Don't want cards appearing on YouTube or Wikipedia? You can now add specific URLs to the "Excluded Websites" list in the settings popup.</p>
 
                     <h2>Track Your Growth & Get Help with Reports 📈 (SAT Only Feature)</h2>
-                    <p>Once you've answered enough questions, you can generate a <strong>Personalized Performance Report.</strong> This report shows your overall accuracy and identifies your top 3 weakest topic areas.</p>
-                    <p><strong>Share it!</strong> This is designed to be shared. Post your report on SAT forums (like r/SAT), with your study group, or show it to a tutor. Getting targeted feedback from others is an incredible way to improve.</p>
-                    
+                    <p>Once you've answered enough questions, you can generate a <strong>Personalized Performance
+                            Report.</strong> This report shows your overall accuracy and identifies your top 3 weakest
+                        topic areas.</p>
+                    <p><strong>Share it!</strong> This is designed to be shared. Post your report on SAT forums (like
+                        r/SAT), with your study group, or show it to a tutor. Getting targeted feedback from others is
+                        an incredible way to improve.</p>
+
                     <div class="pep-talk-box">
                         <h3>A Quick Pep Talk: Sticking With It 💪</h3>
-                        <p>Real talk: Someday, a flashcard will pop up at the worst possible moment. That’s normal. The users who see the biggest score increases are the ones who:</p>
+                        <p>Real talk: Someday, a flashcard will pop up at the worst possible moment. That’s normal. The
+                            users who see the biggest score increases are the ones who:</p>
                         <ul>
                             <li><strong>Push through</strong> the initial frustration.</li>
                             <li><strong>Use the break button</strong> instead of quitting.</li>
@@ -263,90 +354,124 @@
                         </ul>
                     </div>
 
-                    <h2>🎉 What's New in v2.0: Custom Flashcard Collections</h2>
-                    <p>FlashySurf v2.0 transforms from a SAT-only tool into a complete study platform. You can now create, manage, and study with custom flashcard collections for <strong>any subject</strong> while keeping all the proven passive learning features that helped students achieve 60-100 point SAT improvements.</p>
-                    
+                    <h2>🎉 Custom Flashcard Collections & Anki Support</h2>
+                    <p>FlashySurf v2.1 transforms from a SAT-only tool into a complete study platform. You can now
+                        create, manage, and study with custom flashcard collections for <strong>any subject</strong>
+                        while keeping all the proven passive learning features that helped students achieve 60-100 point
+                        SAT improvements.</p>
+
                     <div class="tip-box">
                         <h3>Quick Overview 📋</h3>
                         <p>You now have two options:</p>
                         <ul>
-                            <li><strong>Use our proven SAT system:</strong> Keep the built-in 1900+ SAT questions with advanced features like semantic clustering and weakness detection.</li>
-                            <li><strong>Create custom collections:</strong> Study languages, science, history, or any subject with your own flashcard collections.</li>
-                            <li><strong>Use both:</strong> Mix and match! Enable multiple collections and study everything passively.</li>
+                            <li><strong>Use our proven SAT system:</strong> Keep the built-in 1900+ SAT questions with
+                                advanced features like semantic clustering and weakness detection.</li>
+                            <li><strong>Create custom collections:</strong> Study languages, science, history, or any
+                                subject with your own flashcard collections.</li>
+                            <li><strong>Import Anki Decks:</strong> Convert `.apkg` files directly into FlashySurf collections.</li>
+                            <li><strong>Use both:</strong> Mix and match! Enable multiple collections and study
+                                everything passively.</li>
                         </ul>
                     </div>
 
                     <h2>🗂️ Managing Your Collections</h2>
-                    <p>Click the FlashySurf icon to open the enhanced settings panel. You'll now see all your flashcard collections with the ability to enable/disable them individually, plus powerful import/export functionality.</p>
-                    
+                    <p>Click the FlashySurf icon to open the enhanced settings panel. You'll now see all your flashcard
+                        collections with the ability to enable/disable them individually, plus powerful import/export
+                        functionality.</p>
+
                     <div class="single-column-media">
-                        <img src="/media/collection-management-ui.png" alt="Screenshot placeholder showing the collection management interface with multiple collections, enable/disable options, and import functionality">
+                        <img src="/media/collection-management-ui.png"
+                            alt="Screenshot placeholder showing the collection management interface with multiple collections, enable/disable options, and import functionality">
                     </div>
 
                     <h3>Collection Management Features:</h3>
                     <div class="two-column-layout">
                         <div class="column">
                             <h3>Enable/Disable Collections</h3>
-                            <img src="/media/toggling-collections.gif" alt="GIF placeholder showing how to enable and disable different collections">
-                            <p>Control exactly which subjects you want to study by toggling collections on and off with checkboxes.</p>
+                            <img src="/media/toggling-collections.gif"
+                                alt="GIF placeholder showing how to enable and disable different collections">
+                            <p>Control exactly which subjects you want to study by toggling collections on and off with
+                                checkboxes.</p>
                         </div>
                         <div class="column">
                             <h3>Import Collections</h3>
-                            <img src="/media/import-flashcards-collection-to-extension.gif" alt="Screenshot placeholder showing the import collection interface with drag-and-drop functionality">
-                            <p>Import new collections by clicking "Add/Update/Edit Flashcard Collection" and dragging files or browsing to upload.</p>
+                            <img src="/media/import-flashcards-collection-to-extension.gif"
+                                alt="Screenshot placeholder showing the import collection interface with drag-and-drop functionality">
+                            <p>Import new collections by clicking "Add/Update/Edit Flashcard Collection" and dragging
+                                files or browsing to upload.</p>
                         </div>
                     </div>
 
                     <div class="two-column-layout">
                         <div class="column">
                             <h3>Download Collections</h3>
-                            <img src="/media/download-flashcards-collection-from-extension.gif" alt="Screenshot placeholder showing the download button for collections">
-                            <p>Download any collection (except built-in SAT) to backup, edit, or share. Files are saved as .flashysurfcollection.json.</p>
+                            <img src="/media/download-flashcards-collection-from-extension.gif"
+                                alt="Screenshot placeholder showing the download button for collections">
+                            <p>Download any collection (except built-in SAT) to backup, edit, or share. Files are saved
+                                as .flashysurfcollection.json.</p>
                         </div>
                         <div class="column">
                             <h3>Enhanced Statistics</h3>
-                            <img src="/media/dynamic-stats.gif" alt="GIF placeholder showing statistics updating as collections are enabled/disabled">
-                            <p>Watch your accuracy statistics update dynamically as you enable different collections. Hover over any collection to see individual stats.</p>
+                            <img src="/media/dynamic-stats.gif"
+                                alt="GIF placeholder showing statistics updating as collections are enabled/disabled">
+                            <p>Watch your accuracy statistics update dynamically as you enable different collections.
+                                Hover over any collection to see individual stats.</p>
                         </div>
                     </div>
 
                     <div class="tip-box">
                         <h3>Import Process Made Simple 📥</h3>
-                        <p>When you click "Add/Update/Edit Flashcard Collection" in the popup, you'll see a comprehensive import interface with detailed instructions and a drag-and-drop area. The system supports:</p>
+                        <p>When you click "Add/Update/Edit Flashcard Collection" in the popup, you'll see a
+                            comprehensive import interface with detailed instructions and a drag-and-drop area. The
+                            system supports:</p>
                         <ul>
-                            <li><strong>Drag & Drop:</strong> Just drag a .flashysurfcollection.json file onto the upload area</li>
-                            <li><strong>Click to Browse:</strong> Click the upload area to open a file browser and select your file</li>
-                            <li><strong>Smart Updates:</strong> If you import a collection with the same ID as an existing one, you'll be asked if you want to update it</li>
-                            <li><strong>Instant Feedback:</strong> You'll get immediate confirmation when the import is successful</li>
-                            <li><strong>Error Handling:</strong> Clear error messages if something goes wrong with the file format</li>
+                            <li><strong>Drag & Drop:</strong> Just drag a .flashysurfcollection.json file onto the
+                                upload area</li>
+                            <li><strong>Click to Browse:</strong> Click the upload area to open a file browser and
+                                select your file</li>
+                            <li><strong>Smart Updates:</strong> If you import a collection with the same ID as an
+                                existing one, you'll be asked if you want to update it</li>
+                            <li><strong>Instant Feedback:</strong> You'll get immediate confirmation when the import is
+                                successful</li>
+                            <li><strong>Error Handling:</strong> Clear error messages if something goes wrong with the
+                                file format</li>
                         </ul>
-                        <p><strong>Pro Tip:</strong> The import popup also includes step-by-step instructions and a link to the collection creator tool!</p>
+                        <p><strong>Pro Tip:</strong> The import popup also includes step-by-step instructions and a link
+                            to the collection creator tool!</p>
                     </div>
 
                     <h2>🎯 Understanding the Collection Creator</h2>
                     <p>The collection creator interface is powerful but straightforward. Here's how it works:</p>
-                    
+
                     <div class="single-column-media">
-                        <img src="/media/Detailed-Creator-Interface.png" alt="Screenshot placeholder showing detailed view of the flashcard creation interface">
+                        <img src="/media/Detailed-Creator-Interface.png"
+                            alt="Screenshot placeholder showing detailed view of the flashcard creation interface">
                     </div>
 
                     <h3>Key Components:</h3>
                     <ul>
-                        <li><strong>Collection Name:</strong> A descriptive name for your flashcard set (max 30 characters)</li>
+                        <li><strong>Collection Name:</strong> A descriptive name for your flashcard set (max 30
+                            characters)</li>
                         <li><strong>Question:</strong> The main question or prompt for each card</li>
                         <li><strong>Paragraph:</strong> Optional context or reading passage for complex questions</li>
-                        <li><strong>Answer Choices:</strong> 2-4 multiple choice options (you can add/remove options dynamically)</li>
+                        <li><strong>Answer Choices:</strong> 2-4 multiple choice options (you can add/remove options
+                            dynamically)</li>
                         <li><strong>Correct Answer:</strong> Select the right choice using radio buttons</li>
-                        <li><strong>Explanation:</strong> Optional but highly recommended - explains why the answer is correct</li>
+                        <li><strong>Explanation:</strong> Optional but highly recommended - explains why the answer is
+                            correct</li>
                     </ul>
 
                     <div class="pep-talk-box">
                         <h3>Collection Creation Best Practices 💡</h3>
                         <ul>
-                            <li><strong>Start small:</strong> Create 10-15 cards for your first collection to test it out</li>
-                            <li><strong>Write good explanations:</strong> These are crucial for learning, especially when you get answers wrong</li>
-                            <li><strong>Use varied question types:</strong> Mix definitions, applications, and conceptual questions</li>
-                            <li><strong>Test your collection:</strong> Create it, enable it, and see how it feels during browsing</li>
+                            <li><strong>Start small:</strong> Create 10-15 cards for your first collection to test it
+                                out</li>
+                            <li><strong>Write good explanations:</strong> These are crucial for learning, especially
+                                when you get answers wrong</li>
+                            <li><strong>Use varied question types:</strong> Mix definitions, applications, and
+                                conceptual questions</li>
+                            <li><strong>Test your collection:</strong> Create it, enable it, and see how it feels during
+                                browsing</li>
                         </ul>
                     </div>
 
@@ -355,45 +480,67 @@
 
                     <h3>Method 1: Manual Creation</h3>
                     <div class="single-column-media">
-                        <img src="/media/manual-collection-creation.gif" alt="Screenshot placeholder showing the collection creator interface with manual card creation">
+                        <img src="/media/manual-collection-creation.gif"
+                            alt="Screenshot placeholder showing the collection creator interface with manual card creation">
                     </div>
-                    <p>Use our intuitive interface to build flashcards one by one. Perfect for when you want complete control over your content.</p>
+                    <p>Use our intuitive interface to build flashcards one by one. Perfect for when you want complete
+                        control over your content.</p>
 
                     <h3>Method 2: Import Existing Collections</h3>
                     <div class="two-column-layout">
                         <div class="column">
                             <h3>Drag & Drop Upload</h3>
-                            <img src="/media/drag-and-drop-flashcards.gif" alt="Screenshot placeholder showing the drag-and-drop upload interface">
+                            <img src="/media/drag-and-drop-flashcards.gif"
+                                alt="Screenshot placeholder showing the drag-and-drop upload interface">
                             <p>Simply drag a JSON collection file onto the upload area to instantly import it.</p>
                         </div>
                         <div class="column">
                             <h3>Export & Share</h3>
-                            <img src="/media/download-flashcards-collection.gif" alt="Screenshot placeholder showing the export functionality">
-                            <p>Download your collections to backup your work or share them with classmates and friends.</p>
+                            <img src="/media/download-flashcards-collection.gif"
+                                alt="Screenshot placeholder showing the export functionality">
+                            <p>Download your collections to backup your work or share them with classmates and friends.
+                            </p>
                         </div>
                     </div>
 
-                    <h3>Method 3: AI-Powered Generation 🤖</h3>
+                    <h3>Method 3: Anki Import 📤</h3>
                     <div class="single-column-media">
-                        <img src="/media/create-flashcards-collection-with-ai-feature.gif" alt="Screenshot placeholder showing the AI generation interface with text input areas">
+                        <img src="/media/Anki-Import-UI.png"
+                            alt="Screenshot placeholder showing the Anki Import tab in the creator tool">
                     </div>
-                    <p><strong>This is a game-changer!</strong> Paste any study material, notes, or textbook content into the AI generator. Add specific instructions about what you want to focus on, and our AI will automatically create a complete flashcard collection for you.</p>
+                    <p>Already have Anki decks? Go to the "Import Anki" tab in the creator tool, upload your <code>.apkg</code> file, and we'll convert it automatically.</p>
+
+                    <h3>Method 4: AI-Powered Generation 🤖</h3>
+                    <div class="single-column-media">
+                        <img src="/media/create-flashcards-collection-with-ai-feature.gif"
+                            alt="Screenshot placeholder showing the AI generation interface with text input areas">
+                    </div>
+                    <p><strong>This is a game-changer!</strong> Paste any study material, notes, or textbook content
+                        into the AI generator. Add specific instructions about what you want to focus on, and our AI
+                        will automatically create a complete flashcard collection for you.</p>
 
                     <div class="tip-box">
                         <h3>AI Generation Pro Tips 🚀</h3>
                         <ul>
-                            <li><strong>Be specific in your instructions:</strong> Instead of just pasting text, add details like "Create flashcards focusing on vocabulary and definitions" or "Make questions about historical dates and events."</li>
-                            <li><strong>Use quality source material:</strong> The better your input text, the better your flashcards will be.</li>
-                            <li><strong>Daily limit:</strong> You can generate up to 10 AI collections per day to keep costs reasonable.</li>
+                            <li><strong>Be specific in your instructions:</strong> Instead of just pasting text, add
+                                details like "Create flashcards focusing on vocabulary and definitions" or "Make
+                                questions about historical dates and events."</li>
+                            <li><strong>Use quality source material:</strong> The better your input text, the better
+                                your flashcards will be.</li>
+                            <li><strong>Daily limit:</strong> You can generate up to 10 AI collections per day to keep
+                                costs reasonable.</li>
                         </ul>
                     </div>
-
 
                     <h2>🧠 Advanced Features & Limitations</h2>
                     <div class="tip-box">
                         <h3>Important: Semantic Clustering 🤖</h3>
-                        <p>The advanced AI-powered weakness detection and semantic clustering (those 87 topic clusters that target your weak areas) currently <strong>only work with the built-in SAT collections</strong>. Custom collections use simpler spaced repetition without the advanced topic clustering.</p>
-                        <p>We're working on bringing these advanced features to custom collections in a future update!</p>
+                        <p>The advanced AI-powered weakness detection and semantic clustering (those 87 topic clusters
+                            that target your weak areas) currently <strong>only work with the built-in SAT
+                                collections</strong>. Custom collections use simpler spaced repetition without the
+                            advanced topic clustering.</p>
+                        <p>We're working on bringing these advanced features to custom collections in a future update!
+                        </p>
                     </div>
 
                     <h3>What Works With All Collections:</h3>
@@ -415,14 +562,17 @@
                     </ul>
 
                     <h2>Need This Guide Again?</h2>
-                    <p>You can always find this page by clicking the <strong>"Help and Onboarding Screen"</strong> link in the FlashySurf popup.</p>
+                    <p>You can always find this page by clicking the <strong>"Help and Onboarding Screen"</strong> link
+                        in the FlashySurf popup.</p>
                     <div class="single-column-media">
-                        <img src="/media/Help Link Screenshot.png" alt="Location of the 'Help and Onboarding Screen' link in the popup">
+                        <img src="/media/Help Link Screenshot.png"
+                            alt="Location of the 'Help and Onboarding Screen' link in the popup">
                     </div>
-                    
+
                     <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e5e7eb;">
-                    
-                    <p style="font-style: italic; text-align: center; color: var(--color-text-light);">You're ready to go! Close this tab and start surfing the web. Your first question is waiting. 🚀</p>
+
+                    <p style="font-style: italic; text-align: center; color: var(--color-text-light);">You're ready to
+                        go! Close this tab and start surfing the web. Your first question is waiting. 🚀</p>
                 </div>
             </div>
         </section>

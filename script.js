@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     // --- "Alive" Scroll Animation Functionality ---
     const animatedItems = document.querySelectorAll('.animated-item');

@@ -102,10 +102,11 @@
         }
 
         .update-entry li strong {
-            display: block;
+            display: inline-block;
             color: var(--color-text-dark);
             font-weight: 600;
             margin-bottom: 0.25rem;
+            
         }
     </style>
     
@@ -120,7 +121,7 @@
                         alt="FlashySurf Logo"><span>FlashySurf</span></a>
                 <nav class="main-nav">
                     <a href="/">Home</a>
-                    <a href="/blog/">Blog</a>
+                    <a href="/decks/">Flashcard Decks</a>
                     <a href="/updates">Updates & Changes</a>
                     <a href="/onboarding">Help & Onboarding</a>
                     <a href="/creator">Creator</a>
@@ -145,6 +146,51 @@
 
         <section class="updates-container">
             <div class="container">
+                <div class="update-entry">
+                    <h2>Version 2.1.0 - Gamification & Points System <span class="date">December 30, 2025</span></h2>
+                    <p class="summary">MAJOR GAMIFICATION UPDATE! Introducing the points system, 5 new visual themes, referral rewards, and critical algorithm fixes.</p>
+
+                    <h3>Major Features: Gamification & Points System</h3>
+                    <ul>
+                        <li>
+                            <strong>Earn While You Learn:</strong> Introduced a complete economy system. Earn <strong>4 points</strong> for every correct answer and <strong>1 point</strong> for incorrect answers (capped at 50 points/day).
+                        </li>
+                        <li>
+                            <strong>Spend Your Points:</strong> Use earned points on 30-minute breaks (20 pts), skip cards (9 pts), and unlock visual themes.
+                        </li>
+                    </ul>
+
+                    <h3>New Feature: Visual Themes Store</h3>
+                    <ul>
+                        <li>
+                            <strong>Theme Store:</strong> Unlock 5 unique visual themes in the settings popup, including Dark Mode, Gold, Galaxy (animated stars), and Cherry Blossom (falling petals). Test any theme before purchasing.
+                        </li>
+                    </ul>
+
+                    <h3>New Feature: Referral System</h3>
+                    <ul>
+                        <li>
+                            <strong>Earn Referral Bonuses:</strong> Get <strong>75 points</strong> instantly whenever a friend installs FlashySurf using your unique referral link.
+                        </li>
+                        <li>
+                            <strong>Push Notifications:</strong> Receive immediate notifications when referral bonuses are earned.
+                        </li>
+                        <li>
+                            <strong>Uncapped Rewards:</strong> Unlike daily question points (capped at 50), referral bonuses are unlimited.
+                        </li>
+                    </ul>
+
+                    <h3>Bug Fixes & Improvements</h3>
+                    <ul>
+                        <li>
+                            <strong>Semantic Clustering Fixed:</strong> Resolved critical issue where the embedded semantic clustering database was outdated. The "similar questions" algorithm now actually serves semantically related content correctly.
+                        </li>
+                        <li>
+                            <strong>UI Improvements:</strong> Skip card button added, break timer shows countdown on button, note-taking no longer triggers website hotkeys, reorganized help section.
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="update-entry">
                     <h2>Site Change - Anki Deck Support <span class="date">December 4, 2025</span></h2>
                     <p class="summary">Added support for Anki decks, giving you access to thousands of community-created flashcard decks.</p>
